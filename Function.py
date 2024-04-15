@@ -20,7 +20,7 @@ def persons_input(hand_cordinates):
     # Here I am using Hand Cordinates(HC) values , which we got from video input.
     # With the help of HC values , I can determine wither the fingure is UP or DOWN
     # In "hand_cordinate[12][1]" , "12" is the index and "1" is X_cordinate (and "2" for Y_cordinate) 
-    # For more information, refer the "HAND_CORD" image (to understand the HC)
+    
     
     if distance(hand_cordinates[0][2],0,hand_cordinates[12][2],0) < distance(hand_cordinates[0][1],0,hand_cordinates[12][1],0):
         hand_horz=True
