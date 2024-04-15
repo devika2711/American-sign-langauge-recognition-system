@@ -1,5 +1,5 @@
 import cv2 as cv 
-#__________________________________________________________recognizing__________________________________________________________
+
 def persons_input(hand_cordinates):
     def distance(x1,y1,x2,y2):
         distance=int((((x1-x2)**2)+((y1-y2)**2))**(1/2))
@@ -19,8 +19,7 @@ def persons_input(hand_cordinates):
     
     # Here I am using Hand Cordinates(HC) values , which we got from video input.
     # With the help of HC values , I can determine wither the fingure is UP or DOWN
-    # In "hand_cordinate[12][1]" , "12" is the index and "1" is X_cordinate (and "2" for Y_cordinate) 
-    
+
     
     if distance(hand_cordinates[0][2],0,hand_cordinates[12][2],0) < distance(hand_cordinates[0][1],0,hand_cordinates[12][1],0):
         hand_horz=True
