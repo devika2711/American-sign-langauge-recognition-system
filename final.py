@@ -4,7 +4,7 @@ import mediapipe as mp
 from tensorflow.keras.models import load_model
 from Function import *
 
-# Load the CNN model
+
 cnn_model = load_model('best_sign_language_model.h5')
 
 holy_hands = mp.solutions.hands
