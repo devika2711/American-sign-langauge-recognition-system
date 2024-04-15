@@ -9,29 +9,29 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, LearningRateScheduler
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# Load the dataset
+
 train_data = pd.read_csv('sign_mnist_train.csv')
 test_data = pd.read_csv('sign_mnist_test.csv')
 
-# Extract labels and images
+
 train_labels = train_data['label'].values
 train_images = train_data.drop('label', axis=1).values
 test_labels = test_data['label'].values
 test_images = test_data.drop('label', axis=1).values
 
-# Adjust labels - subtract 1 from labels greater than 9
+
 train_labels = np.array([label - 1 if label > 9 else label for label in train_labels])
 test_labels = np.array([label - 1 if label > 9 else label for label in test_labels])
 
-# Normalize the images
+
 train_images = train_images / 255.0
 test_images = test_images / 255.0
 
-# Reshape the data to fit the model
+
 train_images = train_images.reshape(-1, 28, 28, 1)
 test_images = test_images.reshape(-1, 28, 28, 1)
 
-# One-hot encode the labels
+
 train_labels = to_categorical(train_labels, num_classes=24)
 test_labels = to_categorical(test_labels, num_classes=24)
 
@@ -49,7 +49,7 @@ model = Sequential([
     Dense(24, activation='softmax')  # 24 classes for the letters A-Z (excluding J and Z)
 ])
 
-# Implement learning rate scheduling
+
 def lr_scheduler(epoch):
     if epoch < 10:
         return 0.001
