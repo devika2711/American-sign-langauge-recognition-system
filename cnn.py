@@ -48,6 +48,5 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 # Train the model
 model.fit(train_images, train_labels, validation_data=(test_images, test_labels), epochs=10)
 
-# Evaluate the model
 loss, accuracy = model.evaluate(test_images, test_labels)
 print(f"Test accuracy: {accuracy}")
